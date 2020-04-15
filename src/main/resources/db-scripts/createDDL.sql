@@ -1,0 +1,12 @@
+create sequence BOARD_COLUMN_SEQUENCE start 1 increment 1;
+create sequence BOARD_NOTE_SEQUENCE start 1 increment 1;
+create sequence BOARD_SEQUENCE start 1 increment 1;
+create sequence USER_SEQUENCE start 1 increment 1;
+create table "USER" (ID int8 not null, PASSWORD bytea not null, SALT bytea not null, USER_NAME varchar(255) not null, primary key (ID));
+create table BOARD (ID int8 not null, CREATED_AT timestamp not null, NAME varchar(255) not null, USER_ID int8, primary key (ID));
+create table BOARD_COLUMN (ID int8 not null, NAME varchar(255) not null, BOARD_ID int8 not null, primary key (ID));
+create table BOARD_NOTE (ID int8 not null, CONTENT varchar(255) not null, CREATED_AT timestamp not null, VOTES int8 not null, BOARD_COLUMN_ID int8 not null, primary key (ID));
+alter table if exists "USER" add constraint UK_h029unq4qgmbvesub83df4vok unique (USER_NAME);
+alter table if exists BOARD add constraint FK409fie40k8sjkwmm0kkbype9l foreign key (USER_ID) references "USER";
+alter table if exists BOARD_COLUMN add constraint FK1bgsy280wyrfieica37vpat42 foreign key (BOARD_ID) references BOARD;
+alter table if exists BOARD_NOTE add constraint FKfvyseqvvo8qg90hqveiwi8xaq foreign key (BOARD_COLUMN_ID) references BOARD_COLUMN;
