@@ -1,5 +1,6 @@
 package seleniumFirstTest;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,9 @@ public class RegisterPage {
 	@FindBy (id="registerPasswordRepetition")
 	private WebElement inputPwRepetition;
 	
+	@FindBy (id="root")
+	private WebElement rooot;
+	
 	public RegisterPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -37,6 +41,10 @@ public class RegisterPage {
 		buttonConfirm.click();
 	}
 	
+	public void clickOnRoot() {
+		rooot.click();
+	}
+	
 	public void switchToRegister() {
 		switchLoginRegister.click();
 	}
@@ -45,11 +53,27 @@ public class RegisterPage {
 		inputUsername.sendKeys(nickname);
 	}
 	
+	public void typeTABAfterUsername() {
+		inputUsername.sendKeys(Keys.TAB);
+	}
+	
+	public WebElement getInputUsername(){
+		return inputUsername;
+	}
+	
 	public void typePassword(String password) {
 		inputPw.sendKeys(password);
 	}
 	
+	public void typeTABAfterPW() {
+		inputPw.sendKeys(Keys.TAB);
+	}
+	
 	public void typePasswordRepetition(String passwordRepetition) {
 		inputPwRepetition.sendKeys(passwordRepetition);
+	}
+	
+	public void typeTABAfterPasswordRepetition() {
+		inputPwRepetition.sendKeys(Keys.TAB);
 	}
 }

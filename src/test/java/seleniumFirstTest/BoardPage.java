@@ -3,8 +3,10 @@ package seleniumFirstTest;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,10 +38,22 @@ public class BoardPage {
 	WebElement logoutIcon;
 	
 	@FindBy (id="openBoardButton-1")
-	WebElement openBoardButton;
+	WebElement openBoardButton1;
+	
+	@FindBy (id="openBoardButton-2")
+	WebElement openBoardButton2;
 	
 	@FindBy (xpath="/html/body/div/div/div/div/div/div/ul[2]/div")
 	WebElement navPointAbout;
+	
+	@FindBy (xpath="/html/body/div[2]/div[3]/div/div[2]/div[2]/div/div/button")
+	WebElement deleteColumn0Button;
+	
+	@FindBy (id="addBoardColumn")
+	WebElement addBoardColumnButton;
+	
+	@FindBy (id="cancelBoardCreation")
+	WebElement buttonCancelBoardCreation;
 	
 	WebDriver driver;
 	
@@ -52,8 +66,13 @@ public class BoardPage {
 		logoutIcon.click();
 	}
 	
-	public void openBoard() {
-		openBoardButton.click();
+	public void openBoardOne() {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(openBoardButton1).click().perform();
+	}
+	
+	public void openBoardTwo() {
+		openBoardButton2.click();
 	}
 	
 	public void openAboutPage() {
@@ -99,5 +118,25 @@ public class BoardPage {
 	
 	public void confirmBoardCreation() {
 		confirmBoardCreationBTN.click();
+	}
+	
+	public void typeTabAfterBoardTitle() {
+		inputForTitle.sendKeys(Keys.TAB);
+	}
+	
+	public void deleteColumn0() {
+		deleteColumn0Button.click();
+	}
+	
+	public WebElement getDeleteColumnButton0 () {
+		return deleteColumn0Button;
+	}
+	
+	public void addBoardColumn() {
+		addBoardColumnButton.click();
+	}
+	
+	public void cancelBoardCreation() {
+		buttonCancelBoardCreation.click();
 	}
 }
