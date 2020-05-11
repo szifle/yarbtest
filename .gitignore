@@ -4,6 +4,8 @@
 # Both the directory itself and its contents will be ignored.
 target/
 screenshots/
+.settings/
+.sts4-cache/
 
 # Ignoring files by extension
 # All files with these extensions will be ignored in
