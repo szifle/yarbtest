@@ -1,7 +1,0 @@
-defaulturl=https://192.168.178.32:8443/
-loginurl=https://192.168.178.32:8443/login
-abouturl=https://192.168.178.32:8443/user/about
-specificboardurl=https://192.168.178.32:8443/boards/
-userboardurl=https://192.168.178.32:8443/user/boards/
-driverpath=C:\\Users\\susicharlson\\eclipse-workspace\\geckodriver.exe
-headless=true
