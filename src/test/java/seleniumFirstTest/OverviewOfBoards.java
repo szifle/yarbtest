@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BoardPage {
+public class OverviewOfBoards {
 	@FindBy (id="createBoard")
 	WebElement createBoardBTN;
 	
@@ -57,7 +57,7 @@ public class BoardPage {
 	
 	WebDriver driver;
 	
-	public BoardPage(WebDriver driver) {
+	public OverviewOfBoards(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

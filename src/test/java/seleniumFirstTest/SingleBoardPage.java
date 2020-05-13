@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class EditBoardPage {
+public class SingleBoardPage {
 	
 	@FindBy (id="addButton-1")
 	WebElement buttonAddToFirstColumn;
@@ -51,7 +51,7 @@ public class EditBoardPage {
 	
 	WebDriver driver;
 	
-	public EditBoardPage(WebDriver driver) {
+	public SingleBoardPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
