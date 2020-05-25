@@ -17,6 +17,7 @@ import de.zifle.meintestprojekt.model.CreateBoard;
 import de.zifle.meintestprojekt.model.CreateBoardNote;
 import de.zifle.meintestprojekt.model.CreatedResponse;
 import de.zifle.meintestprojekt.model.LoginData;
+import de.zifle.meintestprojekt.model.UpdateBoardNote;
 import de.zifle.meintestprojekt.model.UserCredentials;
 
 public class YarbApi {
@@ -60,6 +61,11 @@ public class YarbApi {
 		return api.createBoard(board).getId();
 	}
 	
+	public void createUserAndloginWithApi(String username, String password) throws Throwable {
+		createUser(username, password);
+		login(username, password);
+	}
+	
 	public Board getBoard(Integer boardID) {
 		return api.getBoard(boardID);
 	}
@@ -73,10 +79,18 @@ public class YarbApi {
 		return resp.getId();
 	}
 	
+	public void deleteNote(Integer noteId) {
+		api.deleteNote(noteId);
+	}
+	
+	public void updateNote(Integer noteId, UpdateBoardNote content) {
+		api.updateNote(noteId, content);
+	}
+	
 	public void setVote(Integer noteID) {
 		api.postVote(noteID);
 	}
-
+	
 	public void login(String userName, String password) throws Throwable {
 		UserCredentials userCredentials = new UserCredentials();
 		userCredentials.setUsername(userName);
@@ -89,6 +103,7 @@ public class YarbApi {
 	private String getToken() {
 		return token;
 	}
+	
 
 	
 }

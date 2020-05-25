@@ -1,15 +1,10 @@
 package seleniumFirstTest;
 
-import java.time.Duration;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SingleBoardPage {
 	
@@ -48,6 +43,15 @@ public class SingleBoardPage {
 	
 	@FindBy (xpath="//*[@id=\'card-1\']/div[1]/p")
 	WebElement textFirstNote;
+	
+	@FindBy (id="card-1")
+	WebElement card1;
+	
+	@FindBy (xpath="//*[contains(@id, 'boardCard')]")
+	WebElement boardCard;
+	
+	@FindBy (css=".MuiDialog-container .MuiDialog-scrollPaper")
+	WebElement muiDialogContainerScrollpaper;
 	
 	WebDriver driver;
 	

@@ -55,6 +55,15 @@ public class OverviewOfBoards {
 	@FindBy (id="cancelBoardCreation")
 	WebElement buttonCancelBoardCreation;
 	
+	@FindBy (id="boardColumnInput3-label")
+	WebElement boardColumnInput3Label;
+	
+	@FindBy (xpath="//*[contains(@id, 'boardCard')]")
+	WebElement boardCard;
+	
+	@FindBy (xpath="//div[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullWidth MuiPaper-rounded']")
+	WebElement boardFormular;
+	
 	WebDriver driver;
 	
 	public OverviewOfBoards(WebDriver driver) {

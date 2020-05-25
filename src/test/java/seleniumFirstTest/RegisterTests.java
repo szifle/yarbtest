@@ -1,6 +1,7 @@
 package seleniumFirstTest;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.Duration;
 
 import org.junit.Assert;
@@ -11,18 +12,25 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class RegisterTests extends TestBase {
 	
+	private static LoginPage loginPage;
+	private static RegisterPage registerPage;
+	
 	public RegisterTests() throws IOException {
 		super();
+	}
+	
+	@Override
+	public void before() throws SQLException, IOException {
+		super.before();
+		loginPage = new LoginPage(driver);
+		registerPage = new RegisterPage(driver);
 	}
 
 	@Test
 	public void testRegisterWithNewUser() throws Throwable {
 		try {
-			LoginPage loginPage = new LoginPage(driver);
 			loginPage.switchToRegister();
-			
 			fillRegisterForm("susiiii", "password12");
-			
 			waitForBoardOverview();
 		} catch(Throwable t) {
 			handleThrowable(t);
@@ -33,12 +41,8 @@ public class RegisterTests extends TestBase {
 	public void testRegisterWithExistingUser() throws Throwable {
 		try {
 			api.createUser(testUsername, testPassword);
-			
-			LoginPage loginPage = new LoginPage(driver);
 			loginPage.switchToRegister();
-			
 			fillRegisterForm(testUsername, testPassword);
-
 			String errorMessage = waitForText(Duration.ofSeconds(2),ExpectedConditions.visibilityOfElementLocated(By.id(registerUsernameHelperText)));
 		
 			Assert.assertEquals("Username is already taken", errorMessage);
@@ -50,10 +54,8 @@ public class RegisterTests extends TestBase {
 	@Test 
 	public void testInvalidRegisterNameMoreThan20Characters() throws Throwable {
 		try {
-			LoginPage loginPage = new LoginPage(driver);
 			loginPage.switchToRegister();
 			
-			RegisterPage registerPage = new RegisterPage(driver);
 			registerPage.typeUserName("aladdinunddiewunderlampe");
 			registerPage.typeTABAfterUsername();
 			
@@ -71,10 +73,8 @@ public class RegisterTests extends TestBase {
 	@Test 
 	public void testRegisterNameLessThan4Characters() throws Throwable {
 		try {
-			LoginPage loginPage = new LoginPage(driver);
 			loginPage.switchToRegister();
 			
-			RegisterPage registerPage = new RegisterPage(driver);
 			registerPage.typeUserName("al");
 			registerPage.typeTABAfterUsername();
 	
@@ -89,7 +89,6 @@ public class RegisterTests extends TestBase {
 	@Test 
 	public void testRegisterPasswordLessThan6Characters() throws Throwable {
 		try {
-			RegisterPage registerPage = new RegisterPage(driver);
 			registerPage.switchToRegister();
 			registerPage.typeUserName("alaaaaaaa");
 			registerPage.typePassword("123");
@@ -106,7 +105,6 @@ public class RegisterTests extends TestBase {
 	@Test 
 	public void testRegisterPasswordsNotSame() throws Throwable {
 		try {
-			RegisterPage registerPage = new RegisterPage(driver);
 			registerPage.switchToRegister();
 			registerPage.typeUserName("alaaaaaa");
 			registerPage.typePassword("123");
@@ -122,7 +120,6 @@ public class RegisterTests extends TestBase {
 	}
 	
 	public void fillRegisterForm(String username, String password) {
-		RegisterPage registerPage = new RegisterPage(driver);
 		registerPage.typeUserName(username);
 		registerPage.typePassword(password);
 		registerPage.typePasswordRepetition(password);

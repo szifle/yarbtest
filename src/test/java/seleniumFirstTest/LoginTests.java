@@ -17,7 +17,7 @@ public class LoginTests extends TestBase {
 	@Test
 	public void testLoginSuccess() throws Throwable {
 		try {
-			loginWithApi(testUsername, testPassword);
+			api.createUserAndloginWithApi(testUsername, testPassword);
 			login(testUsername, testPassword);
 			waitForBoardOverview();
 		} catch (Throwable t) {
@@ -30,7 +30,7 @@ public class LoginTests extends TestBase {
 		try {
 			login(testUsername, testPassword);
 			String errorText = waitForText(Duration.ofSeconds(2), ExpectedConditions.visibilityOfElementLocated(By.id("password-helper-text")));
-			Assert.assertEquals(errorText, "Username or password is wrong");
+			Assert.assertEquals(errorText, loginErrorText);
 		} catch (Throwable t) {
 			super.handleThrowable(t);
 		}

@@ -44,6 +44,7 @@ public class TestBase {
 	protected static final String registerUsernameHelperText = "registerUsername-helper-text";
 	protected static final String testUsername = "susisusi";
 	protected static final String testPassword = "huchhuch";
+	protected static final String loginErrorText = "Username or password is wrong";
 
 	public TestBase() throws IOException {
 		BufferedInputStream stream = new BufferedInputStream(new FileInputStream("test.properties"));
@@ -64,11 +65,6 @@ public class TestBase {
 	@After
 	public void after() {
 		driver.close();
-	}
-	
-	public void loginWithApi(String username, String password) throws Throwable {
-		api.createUser(username, password);
-		api.login(username, password);
 	}
 
 	public void waitForBoardOverview() {
