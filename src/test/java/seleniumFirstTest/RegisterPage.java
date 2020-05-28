@@ -10,22 +10,22 @@ public class RegisterPage {
 	WebDriver driver;
 	
 	@FindBy (id="confirmLoginRegister")
-	private WebElement buttonConfirm;
+	public WebElement buttonConfirm;
 	
 	@FindBy (id="switchLoginRegister")
-	private WebElement switchLoginRegister;
+	public WebElement switchLoginRegister;
 	
 	@FindBy (id="registerUsername")
-	private WebElement inputUsername;
+	public WebElement inputUsername;
 	
 	@FindBy (id="registerPassword")
-	private WebElement inputPw;
+	public WebElement inputPw;
 	
 	@FindBy (id="registerPasswordRepetition")
-	private WebElement inputPwRepetition;
+	public WebElement inputPwRepetition;
 	
 	@FindBy (id="root")
-	private WebElement rooot;
+	public WebElement rooot;
 	
 	public RegisterPage(WebDriver driver) {
 		this.driver = driver;

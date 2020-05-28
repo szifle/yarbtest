@@ -83,7 +83,41 @@
 			<version>1.7.30</version>
 			<scope>test</scope>
 		</dependency>
-
-
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+		<dependency>
+		    <groupId>io.cucumber</groupId>
+		    <artifactId>cucumber-junit</artifactId>
+		    <version>6.0.0-RC2</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
+		<dependency>
+		    <groupId>info.cukes</groupId>
+		    <artifactId>cucumber-java</artifactId>
+		    <version>1.2.6</version>
+		    <type>pom</type>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
+		<dependency>
+		    <groupId>io.cucumber</groupId>
+		    <artifactId>cucumber-core</artifactId>
+		    <version>6.0.0-RC2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-html -->
+		<dependency>
+		    <groupId>io.cucumber</groupId>
+		    <artifactId>cucumber-html</artifactId>
+		    <version>0.2.7</version>
+		</dependency>
+		<dependency>
+		  <groupId>de.monochromata.cucumber</groupId>
+		  <artifactId>reporting-plugin</artifactId>
+		  <version>4.0.52</version>
+		</dependency>
+		
 	</dependencies>
+	
 </project>
