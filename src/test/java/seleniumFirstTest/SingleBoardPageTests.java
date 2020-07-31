@@ -230,7 +230,7 @@ public class SingleBoardPageTests extends TestBase {
 
 			createNewNoteInFormular();
 
-			waitFor(Duration.ofSeconds(10), (ExpectedConditions.visibilityOf(singleBoardPage.likeButton1)));
+			waitFor(Duration.ofSeconds(10), (ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"likeButton-1\"]/span"))));
 
 			singleBoardPage.likeFirstNote();
 

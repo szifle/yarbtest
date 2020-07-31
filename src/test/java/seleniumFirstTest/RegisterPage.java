@@ -33,7 +33,7 @@ public class RegisterPage {
 	}
 	
 	public void registerUser(String userName, String password) throws Throwable {
-		YarbApi api = new YarbApi();
+		YarbApi api = YarbApi.getInstance();
 		api.createUser(userName, password);
 	}
 	

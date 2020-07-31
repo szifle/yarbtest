@@ -26,7 +26,7 @@ public class YarbApi {
 	private static YarbApi instance;
 	private String token = null;
 
-	public YarbApi() {	
+	private YarbApi() {	
 		ResteasyClient client = (ResteasyClient) ClientBuilder.newClient().register(new YarbJacksonProvider());
 		ResteasyWebTarget target = client.target("https://192.168.178.32:9443/yarb");
 

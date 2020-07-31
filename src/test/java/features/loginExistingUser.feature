@@ -16,15 +16,15 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@RegisterUser
-Feature: new user registers himself
+@LoginExistingUser
+Feature: LoginExistingUser
+  I want to create a user in restapi and log him in
 
-  @RegisterUser
-  Scenario: user registers
-  	Given User opens loginPage
-    When User clicks on button to register
-    And User types username
-    And User types password
-    And User types passwordRepetition
-    And User confirms registration
-    Then User is on boardpage
+  @LoginExistingUser
+  Scenario: loginExistingUser
+    Given I open the loginPage
+    And User is created in Restapi
+    When I type Username
+    And I type password
+    And I click on button to confirm
+    Then I am on the board overview

@@ -38,7 +38,7 @@ import de.zifle.meintestprojekt.model.BoardColumn;
 public class TestBase {
 
 	protected WebDriver driver;
-	protected YarbApi api = new YarbApi();
+	protected YarbApi api = YarbApi.getInstance();
 	private SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH.mm.ss.SSSS");
 	protected Properties properties = new Properties();
 	protected static final String registerUsernameHelperText = "registerUsername-helper-text";

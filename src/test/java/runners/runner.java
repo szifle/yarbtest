@@ -7,10 +7,11 @@ import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(  features = "src/test/java/features/registerUserInFrontPage.feature",
-                         glue = "src/test/java/seleniumFirstTest/")
+@CucumberOptions(  features = "src/test/java/features/",
+                         glue = "seleniumFirstTest")
 
-public class runnerRegisterUser {
+
+public class runner {
   //Run this from Maven or as JUnit
 }
 
